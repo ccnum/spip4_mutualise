@@ -16,7 +16,8 @@ RUN unzip /var/www/html/$SPIP_ZIPFILENAME -d /var/www/html/ && \
     mkdir -p sites/petitfablab.laclasse.com/IMG && \
     mkdir -p sites/petitfablab.laclasse.com/tmp && \
     mkdir -p sites/petitfablab.laclasse.com/local && \
-    mkdir -p sites/petitfablab.laclasse.com/config
+    mkdir -p sites/petitfablab.laclasse.com/config &&\
+    chown -R www-data sites/
 
 COPY --chown=www-data ./src/mes_options.php /var/www/html/config/
 
