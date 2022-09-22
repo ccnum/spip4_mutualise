@@ -21,3 +21,4 @@ Nous avons déjà un conteneur `mariadb` déployé dans un namespace `ccn`, cett
 - dockerignore
 - optimize size build
 - lighter base image
+- documentation pour création d'une nouvelle ccn
