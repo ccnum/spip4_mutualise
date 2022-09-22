@@ -4,10 +4,11 @@ FROM php:8-apache
 ENV SPIP_URL="https://files.spip.net/spip/archives/spip-v4.1.5.zip"
 ENV SPIP_ZIPFILENAME="spip-v4.1.5.zip"
 
-# Extension(s) PHP.
-RUN docker-php-ext-install mysqli && \
-    apt-get update -y && \
-    apt-get install unzip -y
+# Extension(s) PHP et dépendances.
+RUN apt-get update -y && \
+    apt-get install unzip libzip-dev zip -y &&\
+    docker-php-ext-install mysqli && \
+    docker-php-ext-install zip
 
 # Récupérer SPIP / Préparer SPIP
 ADD $SPIP_URL /var/www/html/

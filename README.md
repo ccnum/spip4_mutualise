@@ -22,3 +22,4 @@ Nous avons déjà un conteneur `mariadb` déployé dans un namespace `ccn`, cett
 - optimize size build
 - lighter base image
 - documentation pour création d'une nouvelle ccn
+- better readme (tags, presentation, encarts, etc...)
