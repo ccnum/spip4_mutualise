@@ -8,7 +8,8 @@ ENV SPIP_ZIPFILENAME="spip-v4.1.5.zip"
 RUN apt-get update -y && \
     apt-get install unzip libzip-dev zip default-mysql-client -y &&\
     docker-php-ext-install mysqli && \
-    docker-php-ext-install zip
+    docker-php-ext-install zip && \
+    /etc/init.d/apache2 reload
 
 # Récupérer SPIP / Préparer SPIP
 ADD $SPIP_URL /var/www/html/
