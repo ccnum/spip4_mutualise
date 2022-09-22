@@ -11,5 +11,4 @@ RUN docker-php-ext-install mysqli && apt-get update -y && apt-get install unzip 
 ADD $SPIP_URL /var/www/html/
 RUN unzip /var/www/html/$SPIP_ZIPFILENAME
 
-
 EXPOSE 80
