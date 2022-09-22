@@ -9,6 +9,7 @@ RUN apt-get update -y && \
     apt-get install unzip libzip-dev zip default-mysql-client -y &&\
     docker-php-ext-install mysqli && \
     docker-php-ext-install zip && \
+    docker-php-ext-install pdo pdo_mysql && \
     /etc/init.d/apache2 restart
 
 # Récupérer SPIP / Préparer SPIP
