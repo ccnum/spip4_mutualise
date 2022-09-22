@@ -15,3 +15,9 @@ Nous avons déjà un conteneur `mariadb` déployé dans un namespace `ccn`, cett
 - credentials en docker secrets
 - arguments (url du code spip) en variables dans l'interface github
 - arguments en variable d'env du déploiement (sur rancher)
+
+# todo
+
+- dockerignore
+- optimize size build
+- lighter base image
