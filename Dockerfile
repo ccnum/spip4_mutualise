@@ -22,6 +22,6 @@ RUN unzip /var/www/html/$SPIP_ZIPFILENAME -d /var/www/html/ && \
     mkdir -p sites/petitfablab.laclasse.com/config &&\
     chown -R www-data sites/
 
-COPY --chown=www-data ./src/mes_options.php /var/www/html/config/
+COPY --chown=www-data ./src/mes_options.php /var/www/html/sites/petitfablab.laclasse.com/config
 
 EXPOSE 80
