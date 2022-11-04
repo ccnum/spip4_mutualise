@@ -6,7 +6,7 @@ ENV SPIP_ZIPFILENAME="spip-v4.1.5.zip"
 
 # Extension(s) PHP et dépendances.
 RUN apt-get update -y && \
-    apt-get install unzip libzip-dev zip default-mysql-client -y &&\
+    apt-get install unzip libzip-dev zip default-mysql-client git -y &&\
     docker-php-ext-install mysqli && \
     docker-php-ext-install zip && \
     docker-php-ext-install pdo pdo_mysql && \
@@ -19,7 +19,8 @@ RUN unzip /var/www/html/$SPIP_ZIPFILENAME -d /var/www/html/ && \
     mkdir -p sites/petitfablab.laclasse.com/IMG && \
     mkdir -p sites/petitfablab.laclasse.com/tmp && \
     mkdir -p sites/petitfablab.laclasse.com/local && \
-    mkdir -p sites/petitfablab.laclasse.com/config &&\
+    mkdir -p sites/petitfablab.laclasse.com/config && \
+    git clone https://github.com/ccnum/plugin_air_laclasse.git sites/petitfablab.laclasse.com/squelettes/ && \
     chown -R www-data:www-data config/ IMG/ local/ sites/ tmp/
 
 #COPY --chown=www-data ./src/mes_options.php /var/www/html/config
