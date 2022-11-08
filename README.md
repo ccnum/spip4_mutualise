@@ -9,10 +9,15 @@ Cela afin de permettre de simplifier la maintenance et les futurs déploiements.
 
 ### Base de données
 
-Il faut avoir une base de données déjà disponible. Des points importants sont à noter.
+Il faut avoir une base de données déjà disponible. Cette base doit *impérativement* être encodée en `isolatin` !
 ```sql
--- Base en iso-latin (pas le choix avec SPIP)
+-- Création d'une base en iso-latin.
 CREATE DATABASE ccn CHARACTER SET = 'latin1' COLLATE = 'latin1_general_ci';
+```
+Ou alors :
+```sql
+-- Modification d'une base déjà existante :
+ALTER DATABASE ccn COLLATE = 'latin1_general_ci';
 ```
 
 
