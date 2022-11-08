@@ -20,7 +20,7 @@ RUN unzip /var/www/html/$SPIP_ZIPFILENAME -d /var/www/html/ && \
     mkdir -p sites/petitfablab.laclasse.com/tmp && \
     mkdir -p sites/petitfablab.laclasse.com/local && \
     mkdir -p sites/petitfablab.laclasse.com/config && \
-    #git clone --branch dev-spip4 https://github.com/ccnum/plugin_air_laclasse.git sites/petitfablab.laclasse.com/squelettes/ && \
+    git clone --branch dev-spip4 https://github.com/ccnum/plugin_air_laclasse.git sites/petitfablab.laclasse.com/squelettes/ && chown -R www-data:www-data squelettes/ && \
     chown -R www-data:www-data config/ IMG/ local/ sites/ tmp/
 
 #COPY --chown=www-data ./src/mes_options.php /var/www/html/config
