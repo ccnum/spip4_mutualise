@@ -7,8 +7,14 @@ Cela afin de permettre de simplifier la maintenance et les futurs déploiements.
 
 ## Pré-requis
 
-Nous avons déjà un conteneur `mariadb` déployé dans un namespace `ccn`, cette ferme à SPIP devra
-être déployé dans le même namespace.
+### Base de données
+
+Il faut avoir une base de données déjà disponible. Des points importants sont à noter.
+```sql
+-- Base en iso-latin (pas le choix avec SPIP)
+CREATE DATABASE ccn CHARACTER SET = 'latin1' COLLATE = 'latin1_general_ci';
+```
+
 
 ## Principe général
 
