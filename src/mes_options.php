@@ -8,11 +8,14 @@ $path = _DIR_RACINE . $rep . $site . '/';
  * Soit on déclare ces variables dans la commande docker run.....
  * Soit on les déclare dans rancher.
  */
+
+/*
 define ('_INSTALL_SERVER_DB', getenv('DB_TYPE'));
 define ('_INSTALL_HOST_DB', getenv('DB_HOSTNAME'));
 define ('_INSTALL_USER_DB', getenv('DB_USERNAME'));
 define ('_INSTALL_PASS_DB', getenv('DB_USER_PASSWORD'));
 define ('_INSTALL_NAME_DB', getenv('DB_TABLE_NAME'));
+*/
 
 // ordre de recherche des chemins
 define('_SPIP_PATH',
