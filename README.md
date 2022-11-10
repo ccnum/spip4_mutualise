@@ -66,8 +66,14 @@ squelettes correspondants :
 git clone --branch dev-spip4 https://github.com/ccnum/plugin_air_laclasse.git /var/www/html/sites/petitfablab.laclasse.com/squelettes/
 ```
 
+## Configurations
 
+### Données générales
 
+Dans l'espace admin, modifiez les données générales de votre CCN. Dans notre exemple :
+`https://petitfablab.laclasse.com/ecrire/?exec=configurer_identite`
+
+![TConfiguration identité site SPIP](/img/pfl_identité.avif "Configuration identité site SPIP")
 
 
 - credentials en docker secrets
