@@ -16,6 +16,28 @@ define ('_INSTALL_NAME_DB', getenv('DB_TABLE_NAME'));
 */
 
 /*
+ * Déclaration des emplacements des fichiers squelettes.
+ * Ceux-cis sont de type /var/www/html/sites/NOM_DE_LA_CCN/squelettes/
+ * Ex : /var/www/html/sites/petitfablab.laclasse.com/squelettes/
+ */
+if ( is_dir('sites/' . $_SERVER['HTTP_HOST'] . '/squelettes') ) {
+    $GLOBALS['dossier_squelettes'] = 'sites/' . $_SERVER['HTTP_HOST'] . '/squelettes';
+} else{
+    echo 'plop';
+    var_dump($_SERVER['HTTP_HOST']);
+    echo 'plip';
+}
+
+
+
+
+
+
+
+
+
+
+/*
  * CODE HÉRITÉ CI-DESSOUS. À NETTOYER/SIMPLIFIER/ORDONNER QUAND DISPONIBILITÉ.
  */
 
@@ -31,9 +53,12 @@ define('_SPIP_PATH',
     _DIR_RACINE .'prive/:' .
     _DIR_RESTREINT);
 
+/*
 // ajout du dossier squelette
 if (is_dir($path . 'squelettes'))
     $GLOBALS['dossier_squelettes'] = $rep . $site . '/squelettes';
+*/
+
 
 // exemple de logs a la racine pour tous les sites
 define('_FILE_LOG_SUFFIX', '_' . $site . '.log');
