@@ -16,13 +16,13 @@ RUN apt-get update -y && \
 ADD $SPIP_URL /var/www/html/
 # Première CCN
 RUN unzip /var/www/html/$SPIP_ZIPFILENAME -d /var/www/html/ && \
-    rm /var/www/html/$SPIP_ZIPFILENAME && \
-    mkdir -p sites/petitfablab.laclasse.com/IMG && \
-    mkdir -p sites/petitfablab.laclasse.com/tmp && \
-    mkdir -p sites/petitfablab.laclasse.com/local && \
-    mkdir -p sites/petitfablab.laclasse.com/config && \
-    git clone --branch dev-pa https://github.com/ccnum/plugin_air_laclasse.git sites/petitfablab.laclasse.com/squelettes/ && \
-    chown -R www-data:www-data config/ IMG/ local/ sites/ tmp/
+    rm /var/www/html/$SPIP_ZIPFILENAME #&& \
+#    mkdir -p sites/petitfablab.laclasse.com/IMG && \
+#    mkdir -p sites/petitfablab.laclasse.com/tmp && \
+#    mkdir -p sites/petitfablab.laclasse.com/local && \
+#    mkdir -p sites/petitfablab.laclasse.com/config && \
+#    git clone --branch dev-pa https://github.com/ccnum/plugin_air_laclasse.git sites/petitfablab.laclasse.com/squelettes/ && \
+#    chown -R www-data:www-data config/ IMG/ local/ sites/ tmp/
 
 COPY --chown=www-data ./src/mes_options.php /var/www/html/config
 
