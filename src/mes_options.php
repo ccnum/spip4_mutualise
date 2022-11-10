@@ -3,7 +3,7 @@
 /*
  * DOCUMENTATION
  *
- * Pour comprendre le fonctionnement de cd fichier, voyez les pages suivantes :
+ * Pour comprendre le fonctionnement de ce fichier, voyez les pages suivantes :
  * https://framagit.org/-/snippets/2674
  * https://www.spip.net/fr_article4654.html
  * https://contrib.spip.net/Et-si-spip-est-dans-un-sous-repertoire
@@ -16,7 +16,6 @@
  * Soit on déclare ces variables dans la commande docker run.....
  * Soit on les déclare dans rancher.
  */
-
 /*
 // On a choisi de les passer dans rancher : plus besoin de les déclarer ici.
 define ('_INSTALL_SERVER_DB', getenv('DB_TYPE'));
