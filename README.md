@@ -63,7 +63,7 @@ elle-même. Dans le cas qui nous concerne, le `petitfablab` est une CCN de type 
 squelettes correspondants :
 ```shell
 # Pour cet exemple (petitfblab), on travaillera sur une branche de dév particulière.
-git clone --branch dev-pa https://github.com/ccnum/plugin_air_laclasse.git /var/www/html/sites/petitfablab.laclasse.com/squelettes/
+git clone --branch dev-spip4 https://github.com/ccnum/plugin_air_laclasse.git /var/www/html/sites/petitfablab.laclasse.com/squelettes/
 ```
 
 
@@ -78,6 +78,5 @@ git clone --branch dev-pa https://github.com/ccnum/plugin_air_laclasse.git /var/
 
 - dockerignore
 - optimize size build
-- lighter base image
 - documentation pour création d'une nouvelle ccn
 - better readme (tags, presentation, encarts, etc...)

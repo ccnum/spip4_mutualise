@@ -16,16 +16,14 @@ define ('_INSTALL_NAME_DB', getenv('DB_TABLE_NAME'));
 */
 
 /*
- * Déclaration des emplacements des fichiers squelettes.
+ * Déclaration des emplacements des fichiers squelettes. -> Ne marche pas pour le BO (côté /ecrire/ )
  * Ceux-cis sont de type /var/www/html/sites/NOM_DE_LA_CCN/squelettes/
- * Ex : /var/www/html/sites/petitfablab.laclasse.com/squelettes/
+ * Ex :
+ * - /var/www/html/sites/petitfablab.laclasse.com/squelettes/
+ * - ... <-- penser à tester/vérifier pour les autres futures CCN
  */
 if ( is_dir('sites/' . $_SERVER['HTTP_HOST'] . '/squelettes') ) {
     $GLOBALS['dossier_squelettes'] = 'sites/' . $_SERVER['HTTP_HOST'] . '/squelettes';
-} else{
-    echo 'plop';
-    var_dump($_SERVER['HTTP_HOST']);
-    echo 'plip';
 }
 
 
