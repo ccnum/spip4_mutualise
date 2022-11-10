@@ -23,6 +23,11 @@ ALTER DATABASE ccn COLLATE = 'latin1_general_ci';
 
 ## Principe général
 
+Le conteneur récupère une version récente d'*apache* et de *PHP* avec tous les modules nécessaires, y télécharge et
+installe SPIP et finalement injecte la configuration générale (le fichier `mes_options.php`).
+
+VOLUME
+
 - credentials en docker secrets
 - arguments (url du code spip) en variables dans l'interface github
 - arguments en variable d'env du déploiement (sur rancher)
