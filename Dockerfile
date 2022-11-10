@@ -14,6 +14,7 @@ RUN apt-get update -y && \
 
 # Récupérer SPIP / Préparer SPIP
 ADD $SPIP_URL /var/www/html/
+# Première CCN
 RUN unzip /var/www/html/$SPIP_ZIPFILENAME -d /var/www/html/ && \
     rm /var/www/html/$SPIP_ZIPFILENAME && \
     mkdir -p sites/petitfablab.laclasse.com/IMG && \
