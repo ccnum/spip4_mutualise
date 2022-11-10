@@ -1,6 +1,17 @@
 <?php
 
 /*
+ * DOCUMENTATION
+ *
+ * Pour comprendre le fonctionnement de cd fichier, voyez les pages suivantes :
+ * https://framagit.org/-/snippets/2674
+ * https://www.spip.net/fr_article4654.html
+ * https://contrib.spip.net/Et-si-spip-est-dans-un-sous-repertoire
+ * https://doc.cliss21.com/wiki/Plugin_SPIP
+ *
+ */
+
+/*
  * Les 5 variables suivantes doivent être déclarées en variables d'environnement (idéalement au lancement du conteneur)
  * Soit on déclare ces variables dans la commande docker run.....
  * Soit on les déclare dans rancher.
@@ -14,6 +25,8 @@ define ('_INSTALL_USER_DB', getenv('DB_USERNAME'));
 define ('_INSTALL_PASS_DB', getenv('DB_USER_PASSWORD'));
 define ('_INSTALL_NAME_DB', getenv('DB_TABLE_NAME'));
 */
+
+
 
 /*
  * Déclaration des emplacements des fichiers squelettes. -> Ne marche pas pour le BO (côté /ecrire/ )
