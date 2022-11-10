@@ -12,16 +12,11 @@ RUN apt-get update -y && \
     docker-php-ext-install pdo pdo_mysql && \
     /etc/init.d/apache2 restart
 
-# Récupérer SPIP / Préparer SPIP
+# Récupérer SPIP
 ADD $SPIP_URL /var/www/html/
+# Préparer SPIP
 RUN unzip /var/www/html/$SPIP_ZIPFILENAME -d /var/www/html/ && rm /var/www/html/$SPIP_ZIPFILENAME && mkdir -p /var/www/html/sites/ && chown -R www-data:www-data config/ IMG/ local/ sites/ tmp/
-# Première CCN
-#    mkdir -p sites/petitfablab.laclasse.com/IMG && \
-#    mkdir -p sites/petitfablab.laclasse.com/tmp && \
-#    mkdir -p sites/petitfablab.laclasse.com/local && \
-#    mkdir -p sites/petitfablab.laclasse.com/config && \
-#    git clone --branch dev-pa https://github.com/ccnum/plugin_air_laclasse.git sites/petitfablab.laclasse.com/squelettes/
-
+# Configurer SPIP
 COPY --chown=www-data ./src/mes_options.php /var/www/html/config
 
 EXPOSE 80

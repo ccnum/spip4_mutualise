@@ -26,7 +26,43 @@ ALTER DATABASE ccn COLLATE = 'latin1_general_ci';
 Le conteneur récupère une version récente d'*apache* et de *PHP* avec tous les modules nécessaires, y télécharge et
 installe SPIP et finalement injecte la configuration générale (le fichier `mes_options.php`).
 
-VOLUME
+### Volume
+
+Un bon compromis pour installer un volume serait de le faire pointer vers `/var/www/html/sites/`. Cela a l'avantage de
+contenir toutes les instances des CCN mais a comme inconvénient de contenir le cache.
+
+
+## Exemple de déploiement d'une CCN
+
+Une fois le conteneur lancé, il contient une *ferme à SPIP*. À nous d'ajouter au fur et à mesure les CCN que nous
+voulons.
+
+### Préparatifs SPIP
+
+```shell
+# Nous prendrons comme exemple, le petitfablab que nous souhaitons faire pointer vers petitfablab.laclasse.com
+
+# Création des dossiers nécessaires à SPIP.
+mkdir -p /var/www/html/sites/petitfablab.laclasse.com/IMG && \
+    mkdir -p /var/www/html/sites/petitfablab.laclasse.com/tmp && \
+    mkdir -p /var/www/html/sites/petitfablab.laclasse.com/local && \
+    mkdir -p /var/www/html/sites/petitfablab.laclasse.com/config
+
+# Droits donnés à apache sur ces dossiers.
+chown -R www-data:www-data /var/www/html/sites/
+```
+
+Une fois ces préliminaires achevés, nous pouvons commencer l'installation proprement dite via l'interface web de SPIP.
+Dans notre exemple, cet interface se trouve donc à l'adresse
+[petitfablab.laclasse.com/ecrire/](petitfablab.laclasse.com/ecrire/).
+
+# Installation CCN
+
+Une fois les paramètres choisis, votre site SPIP devrait être fonctionnel.
+git clone --branch dev-pa https://github.com/ccnum/plugin_air_laclasse.git sites/petitfablab.laclasse.com/squelettes/
+
+
+
 
 - credentials en docker secrets
 - arguments (url du code spip) en variables dans l'interface github
