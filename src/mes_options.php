@@ -1,7 +1,4 @@
 <?php
-$rep = 'sites/';
-$site = $_SERVER['HTTP_HOST'];
-$path = _DIR_RACINE . $rep . $site . '/';
 
 /*
  * Les 5 variables suivantes doivent être déclarées en variables d'environnement (idéalement au lancement du conteneur)
@@ -10,12 +7,21 @@ $path = _DIR_RACINE . $rep . $site . '/';
  */
 
 /*
+// On a choisi de les passer dans rancher : plus besoin de les déclarer ici.
 define ('_INSTALL_SERVER_DB', getenv('DB_TYPE'));
 define ('_INSTALL_HOST_DB', getenv('DB_HOSTNAME'));
 define ('_INSTALL_USER_DB', getenv('DB_USERNAME'));
 define ('_INSTALL_PASS_DB', getenv('DB_USER_PASSWORD'));
 define ('_INSTALL_NAME_DB', getenv('DB_TABLE_NAME'));
 */
+
+/*
+ * CODE HÉRITÉ CI-DESSOUS. À NETTOYER/SIMPLIFIER/ORDONNER QUAND DISPONIBILITÉ.
+ */
+
+$rep = 'sites/';
+$site = $_SERVER['HTTP_HOST'];
+$path = _DIR_RACINE . $rep . $site . '/';
 
 // ordre de recherche des chemins
 define('_SPIP_PATH',

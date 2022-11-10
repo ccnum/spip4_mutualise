@@ -6,7 +6,7 @@ ENV SPIP_ZIPFILENAME="spip-v4.1.5.zip"
 
 # Extension(s) PHP et dépendances.
 RUN apt-get update -y && \
-    apt-get install unzip libzip-dev zip default-mysql-client git -y &&\
+    apt-get install unzip libzip-dev zip default-mysql-client git nano -y &&\
     docker-php-ext-install mysqli && \
     docker-php-ext-install zip && \
     docker-php-ext-install pdo pdo_mysql && \

@@ -58,8 +58,14 @@ Dans notre exemple, cet interface se trouve donc à l'adresse
 
 # Installation CCN
 
-Une fois les paramètres choisis, votre site SPIP devrait être fonctionnel.
-git clone --branch dev-pa https://github.com/ccnum/plugin_air_laclasse.git sites/petitfablab.laclasse.com/squelettes/
+Une fois les paramètres choisis, votre site SPIP devrait être fonctionnel. À présent, il faut installer la CCN
+elle-même. Dans le cas qui nous concerne, le `petitfablab` est une CCN de type *air*/*fictions*. Il lui faut donc les
+squelettes correspondants :
+```shell
+# Pour cet exemple (petitfblab), on travaillera sur une branche de dév particulière.
+git clone --branch dev-pa https://github.com/ccnum/plugin_air_laclasse.git /var/www/html/sites/petitfablab.laclasse.com/squelettes/
+```
+
 
 
 
