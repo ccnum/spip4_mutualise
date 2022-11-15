@@ -63,11 +63,6 @@ define('_SPIP_PATH',
     _DIR_RACINE .'prive/:' .
     _DIR_RESTREINT);
 
-/*
-// ajout du dossier squelette
-if (is_dir($path . 'squelettes'))
-    $GLOBALS['dossier_squelettes'] = $rep . $site . '/squelettes';
-*/
 
 
 // exemple de logs a la racine pour tous les sites
