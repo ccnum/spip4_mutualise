@@ -73,7 +73,7 @@ git clone --branch dev-spip4 https://github.com/ccnum/plugin_air_laclasse.git /v
 Dans l'espace admin, modifiez les données générales de votre CCN. Dans notre exemple :
 `https://petitfablab.laclasse.com/ecrire/?exec=configurer_identite`
 
-![TConfiguration identité site SPIP](/img/pfl_identité.avif "Configuration identité site SPIP")
+![Configuration identité site SPIP](/img/pfl_identité.avif "Configuration identité site SPIP")
 
 
 - credentials en docker secrets
