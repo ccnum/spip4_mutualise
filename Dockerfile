@@ -8,7 +8,7 @@ ENV SPIP_ZIPFILENAME="spip-v4.1.5.zip"
 RUN apt-get update -y && \
     apt-get install unzip libzip-dev zip \
                     default-mysql-client \
-                    libpng-dev libfreetype6-dev libjpeg62-turbo-dev zlib1g-dev libwebp-dev libxpm-dev libmagickwand-dev imagemagick libmagickcore-dev php8.0-imagick \
+                    libpng-dev libfreetype6-dev libjpeg62-turbo-dev zlib1g-dev libwebp-dev libxpm-dev libmagickwand-dev imagemagick libmagickcore-dev \
                     git nano -y && \
     docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp &&\
     docker-php-ext-install mysqli zip pdo_mysql && \
