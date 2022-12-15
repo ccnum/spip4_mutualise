@@ -63,7 +63,7 @@ if ( is_dir('sites/' . $_SERVER['HTTP_HOST'] . '/squelettes') ) {
  **********************************************************************************************************************/
 
 /*
- * CODE HÉRITÉ CI-DESSOUS. À NETTOYER/SIMPLIFIER/ORDONNER QUAND DISPONIBILITÉ.
+ * CODE HÉRITÉ CI-DESSOUS. À NETTOYER/SIMPLIFIER/ORDONNER/COMMENTER QUAND DISPONIBILITÉ.
  */
 
 $rep = 'sites/';
@@ -89,8 +89,9 @@ $cookie_prefix = str_replace('.', '_', $site);
 $table_prefix = 'spip';
 
 // exectution du fichier config/mes_option.php du site mutualise
+/*
 if (is_readable($f = $path . _NOM_PERMANENTS_INACCESSIBLES . _NOM_CONFIG . '.php'))
-    include($f);
+    include($f);*/
 
 // demarrage du site
 spip_initialisation(
