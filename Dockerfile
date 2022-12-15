@@ -1,4 +1,4 @@
-# Prendre une image plus légère si possible.
+# TODO Prendre une image plus légère si possible.
 FROM php:8.1-apache
 
 ENV SPIP_URL="https://files.spip.net/spip/archives/spip-v4.1.5.zip"
