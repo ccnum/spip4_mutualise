@@ -6,11 +6,13 @@ ENV SPIP_ZIPFILENAME="spip-v4.1.5.zip"
 
 # Extension(s) PHP et dépendances.
 RUN apt-get update -y && \
-    apt-get install unzip libzip-dev zip default-mysql-client libpng-dev git nano php8.0-gd -y &&\
-    docker-php-ext-install mysqli && \
-    docker-php-ext-install zip && \
-    docker-php-ext-install gd && \
-    docker-php-ext-install pdo pdo_mysql && \
+    apt-get install unzip libzip-dev zip \
+                    default-mysql-client \
+                    libpng-dev libfreetype6-dev libjpeg62-turbo-dev zlib1g-dev libwebp-dev libxpm-dev libmagickwand-dev imagemagick libmagickcore-dev php8.0-imagick \
+                    git nano -y && \
+    docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp &&\
+    docker-php-ext-install mysqli zip pdo_mysql && \
+    docker-php-ext-install -j$(nproc) gd &&\
     /etc/init.d/apache2 restart
 
 # Récupérer SPIP

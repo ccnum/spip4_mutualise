@@ -9,7 +9,10 @@ Cela afin de permettre de simplifier la maintenance et les futurs déploiements.
 
 ### Base de données
 
-Il faut avoir une base de données déjà disponible. Cette base doit *impérativement* être encodée en `isolatin` !
+Il faut avoir une base de données déjà disponible.
+
+
+Pour **spip 3**, cette base doit *impérativement* être encodée en `isolatin` !
 ```sql
 -- Création d'une base en iso-latin.
 CREATE DATABASE ccn CHARACTER SET = 'latin1' COLLATE = 'latin1_general_ci';
