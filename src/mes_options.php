@@ -89,9 +89,9 @@ $cookie_prefix = str_replace('.', '_', $site);
 $table_prefix = 'spip';
 
 // exectution du fichier config/mes_option.php du site mutualise
-/*
+
 if (is_readable($f = $path . _NOM_PERMANENTS_INACCESSIBLES . _NOM_CONFIG . '.php'))
-    include($f);*/
+    include($f);
 
 // demarrage du site
 spip_initialisation(
