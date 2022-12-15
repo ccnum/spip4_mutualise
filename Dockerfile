@@ -4,6 +4,7 @@ FROM php:8-apache
 ENV SPIP_URL="https://files.spip.net/spip/archives/spip-v4.1.5.zip"
 ENV SPIP_ZIPFILENAME="spip-v4.1.5.zip"
 
+# Récupérer un php.ini pour le mode de production.
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 # Extension(s) PHP et dépendances.
 RUN apt-get update -y && apt-get upgrade -y && apt-get install unzip libzip-dev zip \

@@ -11,7 +11,21 @@ Cela afin de permettre de simplifier la maintenance et les futurs déploiements.
 
 Il faut avoir une base de données déjà disponible.
 
+#### SPIP 4
+Pour `SPIP 4`, le code suivant a été ajouté au fichier `mes_options.php` :
+```php
+/*
+ * Déclaration de l'encodage utf-8 de la base de données.
+ * https://contrib.spip.net/Astuces-longues-pour-SPIP
+ */
+if (!defined('_ECRIRE_INC_VERSION')) {
+    return;
+}
+// Pour permettre les index de plus de 1000 octets (2 tables du core concernées, dont spip_metas
+define('_MYSQL_ENGINE', 'InnoDB');
+```
 
+#### SPIP3
 Pour **spip 3**, cette base doit *impérativement* être encodée en `isolatin` !
 ```sql
 -- Création d'une base en iso-latin.
@@ -23,6 +37,24 @@ Ou alors :
 ALTER DATABASE ccn COLLATE = 'latin1_general_ci';
 ```
 
+#### Connexion à la BDD
+
+Quelque soit votre version de SPIP et votre encodage de la base de données, vous devez en déclarer les modalités de
+connexion à SPIP pour qu'il puisse s'y connecter. Deux choix s'offrent à vous :
+- Les déclarer en variables d'environnement (directement via `rancher`/`docker` dans notre cas).
+- Les déclarer dans le fichier `mes_options.php`
+
+```php
+// Exemple dans le fichier mes_options.php qui récupère les données en variable d'environnement.
+define ('_INSTALL_SERVER_DB', getenv('DB_TYPE'));
+define ('_INSTALL_HOST_DB', getenv('DB_HOSTNAME'));
+define ('_INSTALL_USER_DB', getenv('DB_USERNAME'));
+define ('_INSTALL_PASS_DB', getenv('DB_USER_PASSWORD'));
+define ('_INSTALL_NAME_DB', getenv('DB_TABLE_NAME'));
+```
+
+Notez que SPIP n'accepte que les bases de données de type `sqlite` ou `mysql` (qui inclut `mariadb`). Cela
+correspond à la constante `_INSTALL_SERVER_DB`.
 
 ## Principe général
 

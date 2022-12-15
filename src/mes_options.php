@@ -65,7 +65,7 @@ if ( is_dir('sites/' . $_SERVER['HTTP_HOST'] . '/squelettes') ) {
 /*
  * CODE HÉRITÉ CI-DESSOUS. À NETTOYER/SIMPLIFIER/ORDONNER QUAND DISPONIBILITÉ.
  */
-
+/*
 $rep = 'sites/';
 $site = $_SERVER['HTTP_HOST'];
 $path = _DIR_RACINE . $rep . $site . '/';
