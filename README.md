@@ -25,8 +25,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 define('_MYSQL_ENGINE', 'InnoDB');
 ```
 
-#### SPIP3
-Pour **spip 3**, cette base doit *impérativement* être encodée en `isolatin` !
+Cette base doit *impérativement* être encodée en `isolatin` !
 ```sql
 -- Création d'une base en iso-latin.
 CREATE DATABASE ccn CHARACTER SET = 'latin1' COLLATE = 'latin1_general_ci';

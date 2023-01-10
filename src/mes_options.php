@@ -33,11 +33,11 @@ define('_MYSQL_ENGINE', 'InnoDB');
  *
  * On a choisi de les passer dans rancher : plus besoin de les déclarer ici.
  */
-//define ('_INSTALL_SERVER_DB', getenv('DB_TYPE'));
-//define ('_INSTALL_HOST_DB', getenv('DB_HOSTNAME'));
-//define ('_INSTALL_USER_DB', getenv('DB_USERNAME'));
-//define ('_INSTALL_PASS_DB', getenv('DB_USER_PASSWORD'));
-//define ('_INSTALL_NAME_DB', getenv('DB_TABLE_NAME'));
+define ('_INSTALL_SERVER_DB', getenv('DB_TYPE'));
+define ('_INSTALL_HOST_DB', getenv('DB_HOSTNAME'));
+define ('_INSTALL_USER_DB', getenv('DB_USERNAME'));
+define ('_INSTALL_PASS_DB', getenv('DB_USER_PASSWORD'));
+define ('_INSTALL_NAME_DB', getenv('DB_TABLE_NAME'));
 
 /***********************************************************************************************************************
  *                                                  CONFIGURATIONS
@@ -53,6 +53,22 @@ if ( is_dir('sites/' . $_SERVER['HTTP_HOST'] . '/squelettes') ) {
     $GLOBALS['dossier_squelettes'] = 'sites/' . $_SERVER['HTTP_HOST'] . '/squelettes';
 }
 
+/**
+ * Configuration du préfixe des tables.
+ * Avons-nous bien une url de type NOM_CCN.laclasse.com ?
+ * - oui -> on renvoie NOM_CCN
+ * - non -> on renvoie NOM_CCN.laclasse.com
+ * @return string
+ */
+function getPrefixeTableSpip(): string
+{
+    $frags = explode('.', $_SERVER['HTTP_HOST']);
+    if ( count($frags)===3 && $frags[1]==='laclasse' && $frags[2]==='com'){
+        return $frags[0];
+    }
+    return $_SERVER['HTTP_HOST'];
+}
+$table_prefix = getPrefixeTableSpip();
 
 
 
@@ -86,7 +102,6 @@ define('_DIR_LOG',  _DIR_RACINE . 'log/');
 
 // prefixes des cookie et des tables :
 $cookie_prefix = str_replace('.', '_', $site);
-$table_prefix = 'spip';
 
 // exectution du fichier config/mes_option.php du site mutualise
 
