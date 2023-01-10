@@ -115,4 +115,3 @@ spip_initialisation(
     ($path . _NOM_TEMPORAIRES_INACCESSIBLES),
     ($path . _NOM_TEMPORAIRES_ACCESSIBLES)
 );
-?>
