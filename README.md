@@ -25,7 +25,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 define('_MYSQL_ENGINE', 'InnoDB');
 ```
 
-Cette base doit *impérativement* être encodée en `isolatin` !
+Pour **SPIP 3**, cette base doit *impérativement* être encodée en `isolatin` !
 ```sql
 -- Création d'une base en iso-latin.
 CREATE DATABASE ccn CHARACTER SET = 'latin1' COLLATE = 'latin1_general_ci';
@@ -89,6 +89,10 @@ chown -R www-data:www-data /var/www/html/sites/
 Une fois ces préliminaires achevés, nous pouvons commencer l'installation proprement dite via l'interface web de SPIP.
 Dans notre exemple, cet interface se trouve donc à l'adresse
 [petitfablab.laclasse.com/ecrire/](petitfablab.laclasse.com/ecrire/).
+
+Tous les paramètres ont été inscrits par défaut dans `mes_options.php`, à l'exception du premier utilisateur admin.
+
+
 
 # Installation CCN
 

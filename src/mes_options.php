@@ -39,6 +39,7 @@ define ('_INSTALL_USER_DB', getenv('DB_USERNAME'));
 define ('_INSTALL_PASS_DB', getenv('DB_USER_PASSWORD'));
 define ('_INSTALL_NAME_DB', getenv('DB_TABLE_NAME'));
 
+
 /***********************************************************************************************************************
  *                                                  CONFIGURATIONS
  **********************************************************************************************************************/
@@ -79,7 +80,7 @@ $table_prefix = getPrefixeTableSpip();
  **********************************************************************************************************************/
 
 /*
- * CODE HÉRITÉ CI-DESSOUS. À NETTOYER/SIMPLIFIER/ORDONNER/COMMENTER QUAND DISPONIBILITÉ.
+ * CODE HÉRITÉ CI-DESSOUS. À NETTOYER/SIMPLIFIER/ORDONNER/COMMENTER QUAND DISPONIBILITÉ/COMPRÉHENSION.
  */
 
 $rep = 'sites/';
@@ -103,7 +104,6 @@ define('_DIR_LOG',  _DIR_RACINE . 'log/');
 // prefixes des cookie et des tables :
 $cookie_prefix = str_replace('.', '_', $site);
 
-// exectution du fichier config/mes_option.php du site mutualise
 
 if (is_readable($f = $path . _NOM_PERMANENTS_INACCESSIBLES . _NOM_CONFIG . '.php'))
     include($f);
