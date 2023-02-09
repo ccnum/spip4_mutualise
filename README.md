@@ -78,7 +78,7 @@ voulons.
 
 # Création des dossiers nécessaires à SPIP.
 mkdir -p /var/www/html/sites/petitfablab.laclasse.com/IMG && \
-    mkdir -p /var/www/html/sites/petitfablab.laclasse.com/tmp && \
+    mkdir -p /var/www/html/sites/petitfablab.laclasse.com/tmp/dump && \
     mkdir -p /var/www/html/sites/petitfablab.laclasse.com/local && \
     mkdir -p /var/www/html/sites/petitfablab.laclasse.com/config
 
