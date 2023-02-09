@@ -104,6 +104,14 @@ squelettes correspondants :
 git clone --branch dev-spip4 https://github.com/ccnum/plugin_air_laclasse.git /var/www/html/sites/petitfablab.laclasse.com/squelettes/
 ```
 
+Pour une installation de plugin commun à toutes les instances, faites ainsi :
+```shell
+# Nous allons installer le module « thematiques » dans l'espace mutualisé.
+cd /var/www/html/plugins
+git clone https://github.com/ccnum/plugin_thematique_laclasse.git
+# Cet exemple n'est pas encore fonctionnel car ce module a deux dépendances qui ne sont pas encore disponibles. 
+```
+
 ## Configurations
 
 ### Données générales
@@ -117,6 +125,21 @@ Dans l'espace admin, modifiez les données générales de votre CCN. Dans notre 
 - credentials en docker secrets
 - arguments (url du code spip) en variables dans l'interface github
 - arguments en variable d'env du déploiement (sur rancher)
+
+## Migration
+
+### Récupération de la base de données.
+
+```shell
+# Envoyer le dump de la bdd dans le bon sous-dossier
+kubectl -n ccn cp ./bdd.sqlite  id_du_pod_ferme_spip:/var/www/html/sites/nom_ccn.laclasse.com/tmp/dump/bdd.sqlite
+```
+
+Restaurez la base via l'interface admin (url de type `https://nom_ccn.laclasse.com/ecrire/?exec=restaurer`). Écrasez
+votre ancienne bdd, faites les migrations/conversions que vous pourrait vous demander SPIP et SURTOUT **pensez à vous
+créer un utilisateur admin temporaire**. En effet, la restauration de la base de données aura pour effet de vous
+attribuer l'identité de l'utilisateur ayant le même id que vous dans la nouvelle base, un nouvel utilisateur admin vous
+permettra de vous reconnecter et/ou faire d'autres manipulations.
 
 # todo
 
