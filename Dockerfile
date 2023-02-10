@@ -7,7 +7,7 @@ ENV SPIP_ZIPFILENAME="spip-v4.1.5.zip"
 # Récupérer un php.ini pour le mode de production.
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 # Extension(s) PHP et dépendances.
-RUN apt-get update -y && apt-get upgrade -y && apt-get install unzip libzip-dev zip \
+RUN apt-get update -y && apt-get upgrade -y && apt-get install unzip libzip-dev zip wget \
                     default-mysql-client \
                     libpng-dev libfreetype6-dev libjpeg62-turbo-dev zlib1g-dev libwebp-dev libxpm-dev libmagickwand-dev imagemagick libmagickcore-dev \
                     git nano -y  && \
