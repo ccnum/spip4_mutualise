@@ -23,7 +23,7 @@ ADD $SPIP_URL /var/www/html/
 # Préparer SPIP
 RUN unzip /var/www/html/$SPIP_ZIPFILENAME -d /var/www/html/ && rm /var/www/html/$SPIP_ZIPFILENAME && mkdir -p /var/www/html/sites/ && mkdir -p /var/www/html/plugins/auto && chown -R www-data:www-data config/ IMG/ local/ plugins/ sites/ tmp/
 # Télécharement du module des CCN avec sa dépendance CAS.
-RUN git clone --branch dev-pierre-alexandre https://github.com/ccnum/plugin_thematique_laclasse.git /var/www/html/plugins
+RUN git clone --branch dev-pierre-alexandre https://github.com/ccnum/plugin_thematique_laclasse.git /var/www/html/plugins/ccn_thematique
 # Configurer SPIP
 COPY --chown=www-data ./src/mes_options.php /var/www/html/config
 
