@@ -1,4 +1,8 @@
 <?php
+/**
+ * Ce fichier est interprété à chaque requête de page. Gardez-le le plus léger possible.
+ */
+
 /***********************************************************************************************************************
  *                                                  DOCUMENTATIONS
  **********************************************************************************************************************/
@@ -8,6 +12,7 @@
  * https://www.spip.net/fr_article4654.html
  * https://contrib.spip.net/Et-si-spip-est-dans-un-sous-repertoire
  * https://doc.cliss21.com/wiki/Plugin_SPIP
+ * https://www.spip.net/fr_article4453.html  Aide au débuggage.
  */
 
 /***********************************************************************************************************************
@@ -92,6 +97,40 @@ $table_prefix = getPrefixeTableSpip(); // Fonction créée plus haut dans ce fic
 if (is_readable($f = $path . _NOM_PERMANENTS_INACCESSIBLES . _NOM_CONFIG . '.php')) {// Exécution du fichier config/mes_option.php du site mutualisé.
     include($f);
 }
+/***********************************************************************************************************************
+ *                                                  CONFIGURATIONS - OPTIONS
+ **********************************************************************************************************************/
+/**
+ * DOCUMENTATION ICI : https://programmer.spip.net/Declarer-des-options
+ * LISTE DES OPTIONS POSSIBLES : https://www.spip.net/fr_rubrique643.html
+ *
+ * Notes :
+ * - Il n'est pas nécessaire de mettre toutes les options, car leurs valeurs par défaut sont le plus souvent convenables.
+ * - Le format utilisé : defined('_CONSTANTE') or define ('_CONSTANTE', 'valeur'); est préféré, car il teste la
+ * pré-existence de la constante (et ne la redéfinira pas dans ce cas)
+ *
+ * TODO : IL POURRAIT ÊTRE PERTINENT DE RÉCUPÉRER CES OPTIONS DEPUIS DES VARIABLES D'ENVIRONNEMENT DÉCLARÉES DANS RACNHER/DOCKER
+ */
+
+// UTILISATEURS
+defined('_CNIL_PERIODE') or define ('_CNIL_PERIODE', 3600*24*30*1); // https://www.spip.net/fr_article5253.html
+defined('_LOGIN_TROP_COURT') or define ('_LOGIN_TROP_COURT', 5); // https://www.spip.net/fr_article5583.html
+defined('_PASS_LONGUEUR_MINI') or define ('_PASS_LONGUEUR_MINI', '10'); // https://www.spip.net/fr_article5548.html
+
+// FICHIERS
+defined('_IMG_GD_QUALITE') or define ('_IMG_GD_QUALITE', '50'); // https://www.spip.net/fr_article5524.html
+defined('_TITRER_DOCUMENTS') or define ('_TITRER_DOCUMENTS', true); // https://www.spip.net/fr_article5674.html
+
+// SESSIONS
+defined('_MAX_NB_SESSIONS_OUVERTES') or define ('_MAX_NB_SESSIONS_OUVERTES', '100'); // https://www.spip.net/fr_article5712.html
+defined('_NB_SESSIONS_MAX') or define ('_NB_SESSIONS_MAX', '10'); // https://www.spip.net/fr_article6631.html
+
+// SÉCURITÉ
+defined('_HEADER_COMPOSED_BY') or define ('_HEADER_COMPOSED_BY', ''); // https://www.spip.net/fr_article5682.html
+$GLOBALS['spip_header_silencieux'] = 1; // https://www.spip.net/fr_article4648.html
+
+// DÉBUGGAGE
+defined('_LOG_FILELINE') or define ('_LOG_FILELINE', true); // https://www.spip.net/fr_article5506.html
 
 /***********************************************************************************************************************
  *                                                  DÉMARRAGE DU SITE
