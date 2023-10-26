@@ -31,4 +31,8 @@ RUN git clone --branch dev-pierre-alexandre https://github.com/ccnum/plugin_them
 # Configurer SPIP
 COPY --chown=www-data ./src/mes_options.php /var/www/html/config
 
+# PLUGIN(S) : thematiques et CAS + leurs dépendances
+
+
+
 EXPOSE 80

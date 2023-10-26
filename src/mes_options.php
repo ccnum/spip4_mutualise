@@ -31,7 +31,7 @@ define('_MYSQL_ENGINE', 'InnoDB');
  * Soit on déclare ces variables dans la commande docker run.....
  * Soit on les déclare dans rancher.
  *
- * On a choisi de les passer dans rancher : plus besoin de les déclarer ici.
+ * On a choisi de les passer dans rancher : plus besoin de les déclarer en dur ici.
  */
 define ('_INSTALL_SERVER_DB', getenv('DB_TYPE'));
 define ('_INSTALL_HOST_DB', getenv('DB_HOSTNAME'));
@@ -57,8 +57,8 @@ if ( is_dir('sites/' . $_SERVER['HTTP_HOST'] . '/squelettes') ) {
 /**
  * Configuration du préfixe des tables.
  * Avons-nous bien une url de type NOM_CCN.laclasse.com ?
- * - oui -> on renvoie NOM_CCN
- * - non -> on renvoie NOM_CCN.laclasse.com
+ * - oui → on renvoie NOM_CCN
+ * - non → on renvoie NOM_CCN.laclasse.com
  * @return string
  */
 function getPrefixeTableSpip(): string
@@ -69,46 +69,33 @@ function getPrefixeTableSpip(): string
     }
     return $_SERVER['HTTP_HOST'];
 }
-$table_prefix = getPrefixeTableSpip();
 
-
-
-
-
-/***********************************************************************************************************************
- *                                                  CODE HÉRITÉ
- **********************************************************************************************************************/
-
-/*
- * CODE HÉRITÉ CI-DESSOUS. À NETTOYER/SIMPLIFIER/ORDONNER/COMMENTER QUAND DISPONIBILITÉ/COMPRÉHENSION.
+/**
+ * Configuration spécifique à la mutualisation (ferme à SPIP)
+ * Voir la documentation ici : https://www.spip.net/fr_article3811.html
  */
-
-$rep = 'sites/';
+$rep = 'sites/'; // Dans quel sous-repertoire du serveur sont stockés les différentes ccn
 $site = $_SERVER['HTTP_HOST'];
-$path = _DIR_RACINE . $rep . $site . '/';
-
-// ordre de recherche des chemins
-define('_SPIP_PATH',
+$path = _DIR_RACINE . $rep . $site . '/'; // Chemin d'accès aux fichiers.
+define('_SPIP_PATH', // Ordre de recherche des chemins (les squelettes seront chargés successivement depuis ces répertoires).
     $path . ':' .
     _DIR_RACINE .':' .
     _DIR_RACINE .'squelettes-dist/:' .
     _DIR_RACINE .'prive/:' .
     _DIR_RESTREINT);
-
-
-
-// exemple de logs a la racine pour tous les sites
+// Nom et emplacement des fichiers de log.
 define('_FILE_LOG_SUFFIX', '_' . $site . '.log');
 define('_DIR_LOG',  _DIR_RACINE . 'log/');
-
-// prefixes des cookie et des tables :
+// Préfixes des cookies.
 $cookie_prefix = str_replace('.', '_', $site);
-
-
-if (is_readable($f = $path . _NOM_PERMANENTS_INACCESSIBLES . _NOM_CONFIG . '.php'))
+$table_prefix = getPrefixeTableSpip(); // Fonction créée plus haut dans ce fichier.
+if (is_readable($f = $path . _NOM_PERMANENTS_INACCESSIBLES . _NOM_CONFIG . '.php')) {// Exécution du fichier config/mes_option.php du site mutualisé.
     include($f);
+}
 
-// demarrage du site
+/***********************************************************************************************************************
+ *                                                  DÉMARRAGE DU SITE
+ **********************************************************************************************************************/
 spip_initialisation(
     ($path . _NOM_PERMANENTS_INACCESSIBLES),
     ($path . _NOM_PERMANENTS_ACCESSIBLES),
