@@ -115,7 +115,7 @@ if (is_readable($f = $path . _NOM_PERMANENTS_INACCESSIBLES . _NOM_CONFIG . '.php
 // UTILISATEURS
 defined('_CNIL_PERIODE') or define ('_CNIL_PERIODE', 3600*24*30*1); // https://www.spip.net/fr_article5253.html
 defined('_LOGIN_TROP_COURT') or define ('_LOGIN_TROP_COURT', 5); // https://www.spip.net/fr_article5583.html
-defined('_PASS_LONGUEUR_MINI') or define ('_PASS_LONGUEUR_MINI', '10'); // https://www.spip.net/fr_article5548.html
+defined('_PASS_LONGUEUR_MINI') or define ('_PASS_LONGUEUR_MINI', '8'); // https://www.spip.net/fr_article5548.html
 
 // FICHIERS
 defined('_IMG_GD_QUALITE') or define ('_IMG_GD_QUALITE', '50'); // https://www.spip.net/fr_article5524.html
