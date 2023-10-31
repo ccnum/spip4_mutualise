@@ -1,5 +1,59 @@
 # Dockerisation d'une ferme à SPIP (SPIP4)
 
+[comment]: # (TODO Refaire entièrement et pas-à-pas.)
+
+## Base de données
+
+
+## Interface de base de données (optionnel)
+
+
+
+## SPIP mutualisé
+
+
+## Post-installation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [Qu'est-ce que SPIP ?](https://www.spip.net/fr_rubrique91.html)
 
 Nous souhaitons mutualiser le code SPIP utilisé sur toutes les CCNs en un seul conteneur déployé.
