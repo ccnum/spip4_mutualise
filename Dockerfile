@@ -31,7 +31,7 @@ RUN unzip /var/www/html/$SPIP_ZIPFILENAME -d /var/www/html/ && rm /var/www/html/
 COPY --chown=www-data ./src/shell_actions.sh /var/www/html/config
 RUN sh /var/www/html/config/shell_actions.sh && \
 # Télécharement du module des CCN avec sa dépendance CAS.
-    git clone --branch dev-pierre-alexandre https://github.com/ccnum/plugin_thematique_laclasse.git /var/www/html/plugins/ccn_thematique #&& \
+    git clone --branch dev-pierre-alexandre https://github.com/ccnum/plugin_thematique_laclasse.git /var/www/html/plugins/ccn_thematique && \
     git clone --branch cicas-spip4 https://github.com/ccnum/plugin_cas_thematique_laclasse.git /var/www/html/plugins/ccn_thematique_cas
 # Configurer SPIP
 COPY --chown=www-data ./src/mes_options.php /var/www/html/config
