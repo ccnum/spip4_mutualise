@@ -7,13 +7,14 @@
 
 ## Interface de base de données (optionnel)
 
-
+adminer ?
 
 ## SPIP mutualisé
 
 
 ## Post-installation
-
+Activer le dépôt de modules https://nom_ccn.laclasse.com/ecrire/?exec=depots
+Activer le module thématique https://nom_ccn.laclasse.com/ecrire/?exec=admin_plugin&voir=tous
 
 
 
