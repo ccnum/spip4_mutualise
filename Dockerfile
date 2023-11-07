@@ -8,7 +8,7 @@ FROM php:8.1-apache
 ENV SPIP_URL="https://files.spip.net/spip/archives/spip-v4.1.5.zip"
 ENV SPIP_ZIPFILENAME="spip-v4.1.5.zip"
 ENV LISTE_CCN="bd.laclasse.com petitfablab.laclasse.com"
-ENV JQUERYUI_URL = "https://files.spip.org/core/jquery_ui-8a3b8-v1.15.2.zip"
+ENV JQUERYUI_URL="files.spip.org/core/jquery_ui-8a3b8-v1.15.2.zip"
 
 # Récupérer un php.ini pour le mode de production.
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
