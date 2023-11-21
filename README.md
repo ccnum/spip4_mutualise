@@ -4,18 +4,65 @@
 
 ## Base de données
 
+Avant toute chose, il est nécessaire de créer une base de données que pourra utiliser SPIP. Nous avons choisi d'en avoir
+une séparée du pod pour des raisons pratiques (accès externe et réutilisation(s) possible(s)...)
+
+Les choix possibles sont uniquement ***mySQL*** (ou son fork ***mariaDB***) et ***SQLite***.
+
+Quel que sera votre choix, assurez-vous que le hostname de la bdd soit accessible. Dans le cas d'un déploiement docker,
+pensez à joindre un volume pour la persistence des données.
+
+-> Côté *Erasme*, se référer à la configuration dans notre système.
 
 ## Interface de base de données (optionnel)
 
-adminer ?
+Pour des raisons pratiques exceptionnelles, il peut être judicieux d'ajouter une interface de gestion à la base de
+données comme `phpmyadmin` ou `adminer`.
+
+Aucun volume n'est nécessaire pour ce déploiement.
+
+-> Côté *Erasme*, se référer à la configuration de notre système.
 
 ## SPIP mutualisé
 
+Dans le `Dockerfile`, il vous sera sans doute nécessaire d'ajouter ou compléter la liste des CCN dans le paramètre
+d'entrée ou encore de changer la version de SPIP.
+```Dockerfile
+ENV SPIP_URL="https://files.spip.net/spip/archives/spip-v4.1.5.zip"
+ENV SPIP_ZIPFILENAME="spip-v4.1.5.zip"
+ENV LISTE_CCN="bd.laclasse.com petitfablab.laclasse.com"
+```
+
+L'image docker à lancer est `erasme/spip_mutualisation`. Il sera nécessaire d'ajouter en variables d'environnement les
+paramètres suivants :
+- `DB_TYPE` (mettez sa valeur à `mysql` même si vous utilisez mariadb, pour les autres cas, voyez la documentation de SPIP)
+- `DB_HOSTNAME` (cela peut être l'url d'accès ou le hostname de la bdd comme namespace-nom_du_service_bdd)
+- `DB_TABLE_NAME` (la table dans la base de données que vous dédierez à la ferma à SPIP)
+- `DB_USERNAME` (le nom d'utilisateur de la bdd)
+- `DB_TABLE_NAME` (le mot de passe de l'utilisateur de la base de données)
+
+Une fois le conteneur lancé (n'oubliez pas les certificats, ingresses et services), il suffit d'aller sur l'url d'une
+des CCN pour lancer la primo-installation. Tous les paramètres devraient déjà être pré-remplis.
 
 ## Post-installation
+
+Une fois votre ferme à SPIP déployée, il sera tout de même nécessaire de faire certaines actions manuellement.
+
+##### Ajouter un dépôt de modules
+
+[Assurez-vous qu'au moins un dépôt soit activé](https://bd.laclasse.com/ecrire/?exec=depots) pour permettre
+l'installation des dépendances. Vous pouvez vous contenter  
+
+https://plugins.spip.net/spip.php?page=depots
+
 Activer le dépôt de modules https://nom_ccn.laclasse.com/ecrire/?exec=depots
 Activer le module thématique https://nom_ccn.laclasse.com/ecrire/?exec=admin_plugin&voir=tous
+Autoriser le post-datage ecrire/?exec=configurer_contenu
 
+
+### Ajouter une ccn
+
+ajouter son nom dans dockerfile puis redéployer
 
 
 
