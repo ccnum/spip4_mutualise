@@ -48,15 +48,24 @@ des CCN pour lancer la primo-installation. Tous les paramètres devraient déjà
 
 Une fois votre ferme à SPIP déployée, il sera tout de même nécessaire de faire certaines actions manuellement.
 
-##### Ajouter un dépôt de modules
+#### Ajouter un dépôt de modules
 
-[Assurez-vous qu'au moins un dépôt soit activé](https://bd.laclasse.com/ecrire/?exec=depots) pour permettre
-l'installation des dépendances. Vous pouvez vous contenter  
+Assurez-vous qu'au moins un dépôt soit activé (url de type : https://mac_ccn.laclasse.com/ecrire/?exec=depots) pour
+permettre l'installation des dépendances. L'url proposée par défaut est la seule nécessaire et vous pouvez vous en
+contenter, toutefois il existe des [dépôts supplémentaires](https://plugins.spip.net/spip.php?page=depots) si vous le
+désirez.
 
-https://plugins.spip.net/spip.php?page=depots
+#### Activer les modules
 
-Activer le dépôt de modules https://nom_ccn.laclasse.com/ecrire/?exec=depots
-Activer le module thématique https://nom_ccn.laclasse.com/ecrire/?exec=admin_plugin&voir=tous
+Vérifiez que le module thematique (et CICAS si vous en avez besoin) sont bien activés (url de type :
+https://ma_ccn.laclasse.com/ecrire/?exec=admin_plugin&voir=tous)
+
+À présent, il faut configurer le module du CAS
+
+
+
+
+
 Autoriser le post-datage ecrire/?exec=configurer_contenu
 
 
