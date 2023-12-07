@@ -109,7 +109,7 @@ if (is_readable($f = $path . _NOM_PERMANENTS_INACCESSIBLES . _NOM_CONFIG . '.php
  * - Le format utilisé : defined('_CONSTANTE') or define ('_CONSTANTE', 'valeur'); est préféré, car il teste la
  * pré-existence de la constante (et ne la redéfinira pas dans ce cas)
  *
- * TODO : IL POURRAIT ÊTRE PERTINENT DE RÉCUPÉRER CES OPTIONS DEPUIS DES VARIABLES D'ENVIRONNEMENT DÉCLARÉES DANS RACNHER/DOCKER
+ * TODO : IL POURRAIT ÊTRE PERTINENT DE RÉCUPÉRER CES OPTIONS DEPUIS DES VARIABLES D'ENVIRONNEMENT DÉCLARÉES DANS RANCHER/DOCKER
  */
 
 // UTILISATEURS
